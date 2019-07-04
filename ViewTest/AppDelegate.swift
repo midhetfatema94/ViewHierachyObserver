@@ -11,10 +11,8 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var _window: MyWindow?
+    //Making root window to be custom window
     var window: UIWindow? = MyWindow(frame: UIScreen.main.bounds)
-
-//    var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

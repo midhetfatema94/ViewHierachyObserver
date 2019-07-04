@@ -87,8 +87,6 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-//        if self.view.subviews.count == viewCount { return }
-//        viewCount = self.view.subviews.count
         if windowAction { return }
         for (i, eachSubview) in self.view.subviews.enumerated() {
             if blueView.frame.intersects(eachSubview.frame) && blueViewIndex < i {
@@ -101,14 +99,6 @@ class ViewController: UIViewController {
         } else {
             viewCount = 0
         }
-//        if let subviewNotNil = self.view.subviews.last, subviewNotNil != blueView {
-//            print("subviews detected change", blueView.frame.intersects(subviewNotNil.frame))
-//            if blueView.frame.intersects(subviewNotNil.frame) {
-//                actionLabel.text = "Pause"
-//            } else {
-//                actionLabel.text = "Play"
-//            }
-//        }
     }
     
     @objc func deviceResignActive() {
@@ -124,6 +114,7 @@ class ViewController: UIViewController {
     }
 }
 
+//Protocol telling me about view activities on the window
 extension ViewController: InterfaceProtocol {
     func windowAction(shouldHide: Bool) {
         if shouldHide {
@@ -136,6 +127,7 @@ extension ViewController: InterfaceProtocol {
     }
 }
 
+//Custom Window class to observe changes in view controller etc
 class MyWindow: UIWindow {
     
     weak var interfaceDelegate: InterfaceProtocol?
